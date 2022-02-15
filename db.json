@@ -1,0 +1,24 @@
+{
+    "product": [
+      {
+        "id":1,
+        "titles": "Nam",
+        "descs": "mô tả",
+        "prices": 90000,
+        "categoriId":1,
+        "contents": "chi tiết",
+        "images": "ab.png"
+      }
+    ],
+    "categori": [
+      {
+        "id":1,
+        "names": "Iphone"
+      },
+      {
+        "id":1,
+        "names": "Samsung"
+      }
+    ],
+    "profile": { "name": "typicode" }
+}
