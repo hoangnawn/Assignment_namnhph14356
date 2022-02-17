@@ -1,24 +1,84 @@
 {
-    "product": [
-      {
-        "id":1,
-        "titles": "Nam",
-        "descs": "mô tả",
-        "prices": 90000,
-        "categoriId":1,
-        "contents": "chi tiết",
-        "images": "ab.png"
-      }
-    ],
-    "categori": [
-      {
-        "id":1,
-        "names": "Iphone"
-      },
-      {
-        "id":1,
-        "names": "Samsung"
-      }
-    ],
-    "profile": { "name": "typicode" }
+  "product": [
+    {
+      "id": 1,
+      "titles": "Nam ad",
+      "descs": "mô tả",
+      "prices": "90000",
+      "categoriId": 1,
+      "contents": "chi tiết",
+      "updatedAt": "Wed Feb 16 2022 17:00:40 GMT+0700 (Giờ Đông Dương)",
+      "images": "http://res.cloudinary.com/dleceiun0/image/upload/v1645005647/nbkocwlfk63rl8gwrjox.jpg"
+    },
+    {
+      "titles": "Nguyen Hoang Nam",
+      "descs": "da",
+      "prices": "20000000",
+      "categoriId": "4",
+      "contents": "da",
+      "createdAt": "Wed Feb 16 2022 13:28:33 GMT+0700 (Giờ Đông Dương)",
+      "updatedAt": "2022-02-09T15:00:50.038Z",
+      "images": "http://res.cloudinary.com/dleceiun0/image/upload/v1644992930/arkmeismqlxabwj6vgyy.png",
+      "id": 6
+    },
+    {
+      "titles": "Nguyen Hoang Nam",
+      "descs": "da",
+      "prices": "20000000",
+      "categoriId": "4",
+      "contents": "da",
+      "createdAt": "Wed Feb 16 2022 13:28:33 GMT+0700 (Giờ Đông Dương)",
+      "updatedAt": "2022-02-09T15:00:50.038Z",
+      "images": "http://res.cloudinary.com/dleceiun0/image/upload/v1644992930/arkmeismqlxabwj6vgyy.png",
+      "id": 7
+    },
+    {
+      "titles": "Hyundai Kona 1.6 Turbo 2021",
+      "descs": "dagadg",
+      "prices": "20000000",
+      "categoriId": "4",
+      "contents": "gad",
+      "createdAt": "Wed Feb 16 2022 13:35:23 GMT+0700 (Giờ Đông Dương)",
+      "updatedAt": "2022-02-09T15:00:50.038Z",
+      "images": "http://res.cloudinary.com/dleceiun0/image/upload/v1644993348/ey91y1zbeqgcii8ynf7s.png",
+      "id": 9
+    },
+    {
+      "id": 10,
+      "titles": "Namdz",
+      "descs": "sfgs",
+      "prices": 556,
+      "categoriId": "4",
+      "contents": "adg",
+      "createdAt": "Wed Feb 16 2022 20:21:52 GMT+0700 (Giờ Đông Dương)",
+      "images": "http://res.cloudinary.com/dleceiun0/image/upload/v1645017728/clwtsx1vqondunx8ndwk.jpg"
+    },
+    {
+      "titles": "adg",
+      "descs": "adg",
+      "prices": 20000000,
+      "categoriId": "4",
+      "contents": "adg",
+      "createdAt": "Wed Feb 16 2022 19:34:54 GMT+0700 (Giờ Đông Dương)",
+      "images": "http://res.cloudinary.com/dleceiun0/image/upload/v1645014913/rw2cume5rpzgae8fsxdi.jpg",
+      "id": 11
+    }
+  ],
+  "categori": [
+    {
+      "id": 1,
+      "names": "Iphone"
+    },
+    {
+      "id": 2,
+      "names": "Samsung"
+    },
+    {
+      "names": "Oppo",
+      "id": 4
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
 }

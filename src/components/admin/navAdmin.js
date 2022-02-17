@@ -9,16 +9,16 @@ const NavAdmin = {
 
 					<ul>
 						<li class="submenu">
-							<a class="active" href="/admin/dashboard"><i class="fa fa-fw fa-bars"></i><span> Bảng điều khiển </span>
+							<a class="active" href="/admin/"><i class="fa fa-fw fa-bars"></i><span> Bảng điều khiển </span>
 							</a>
 						</li>
 
 						<li class="submenu">
-							<a href="/admin/product"><i class="fa fa-shopping-cart bigfonts"></i><span> Sản phẩm </span> </a>
+							<a href="/#/admin/product"><i class="fa fa-shopping-cart bigfonts"></i><span> Sản phẩm </span> </a>
 						</li>
 
 						<li class="submenu">
-							<a href="danhmuc.html"><i class="fa fa-bookmark bigfonts"></i><span> Danh mục </span> </a>
+							<a href="/#/admin/categori"><i class="fa fa-bookmark bigfonts"></i><span> Danh mục </span> </a>
 						</li>
 
 						<li class="submenu">
@@ -28,7 +28,7 @@ const NavAdmin = {
 							<a href="index.php?act=donhang"><i class="fa fa-cart-arrow-down bigfonts"></i><span> Đơn hàng </span> </a>
 						</li>
 						<li class="submenu">
-							<a href="../index.php"><i class="fa fa-cart-arrow-down bigfonts"></i><span> WEBSITE </span> </a>
+							<a href="/#/"><i class="fa fa-cart-arrow-down bigfonts"></i><span> WEBSITE </span> </a>
 						</li>
 
 					</ul>
@@ -44,5 +44,6 @@ const NavAdmin = {
 		</div>
         `
     },
+
 };
 export default NavAdmin;

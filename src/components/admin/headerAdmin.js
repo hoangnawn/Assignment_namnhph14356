@@ -4,7 +4,7 @@ const HeaderAdmin = {
         <div class="headerbar">
 			<!-- LOGO -->
 			<div class="headerbar-left">
-				<a href="/admin/dashboard" class="logo"><img alt="Logo" src="../../assets/images/logo.png" /> <span>Admin</span></a>
+				<a href="/#/admin/" class="logo"><img alt="Logo" src="https://res.cloudinary.com/dleceiun0/image/upload/v1645004744/zqcleonewwcns2fqltje.png" />Admin</a>
 			</div>
 			<nav class="navbar-custom">
 
@@ -12,7 +12,7 @@ const HeaderAdmin = {
 					<li class="list-inline-item dropdown notif">
 						<a class="nav-link dropdown-toggle nav-user" data-toggle="dropdown" href="#" role="button"
 							aria-haspopup="false" aria-expanded="false">
-							<img src="images/avatars/admin.png" alt="Profile image" class="avatar-rounded">
+							<img src="https://res.cloudinary.com/dleceiun0/image/upload/v1645004758/hrktxwkfxppzstwdjihf.jpg" alt="Profile image" class="avatar-rounded">
 						</a>
 						<div class="dropdown-menu dropdown-menu-right profile-dropdown ">
 							<!-- item-->

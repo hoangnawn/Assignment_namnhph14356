@@ -1,8 +1,14 @@
+import ProductAdmin from ".";
+import { getAll } from "../../../api/categori";
+import { get, update } from "../../../api/product";
 import HeaderAdmin from "../../../components/admin/headerAdmin";
 import NavAdmin from "../../../components/admin/navAdmin";
+import { reLoad, uploadImg } from "../../../util/reRender";
 
 const EditProduct = {
-    render(){
+     async render(id){
+         const { data: cateList } = await getAll();
+        const { data: pro } = await get(id);
         return /* html */ `
         ${HeaderAdmin.render()}
         ${NavAdmin.render()}
@@ -17,7 +23,7 @@ const EditProduct = {
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="breadcrumb-holder">
-                                <h1 class="main-title float-left">Add new article</h1>
+                                <h1 class="main-title float-left">Thêm sản phẩm</h1>
                                 <ol class="breadcrumb float-right">
                                     <li class="breadcrumb-item">Home</li>
                                     <li class="breadcrumb-item">Articles</li>
@@ -43,77 +49,97 @@ const EditProduct = {
                                     </div>
 
 
-                                    <form action="index.php?act=add-sp" method="post" enctype="multipart/form-data">
+                                    <form action="" id="formEdit">
                                         <div class="row">
-
                                             <div class="form-group col-xl-9 col-md-8 col-sm-12">
                                                 <div class="form-group">
                                                     <label>Tên sp</label>
-                                                    <input class="form-control" name="tensp" type="text" value="">
-                                                    <input class="form-control" name="so_luot_xem" type="hidden">
-
+                                                    <input class="form-control" id="name" type="text" value="${pro.titles}">
                                                 </div>
-
                                                 <div class="form-group">
                                                     <label>Mô tả</label>
                                                     <textarea rows="3" class="form-control editor"
-                                                        name="mota"></textarea>
+                                                        id="desc">${pro.descs}</textarea>
 
                                                 </div>
-
                                                 <div class="form-group">
                                                     <label>Ảnh sản phẩm</label><br />
-                                                    <input type="file" name="anh_sp">
-
+                                                    <input type="file" id="image">
+                                                    <img src="${pro.images}" class="w-40 py-4 object-cover rounded-md">
                                                 </div>
-
                                                 <div class="form-group">
-                                                    <button type="submit" name="btn-them" class="btn btn-primary">Thêm
+                                                    <button type="submit" id="btn-them" class="btn btn-primary">Sửa
                                                         sản phẩm</button>
-                                                    <a href="index.php?act=sanpham"><button type="button"
+                                                    <a href="/admin/product"><button type="button"
                                                             class="btn btn-info">Quay lại</button></a>
                                                 </div>
                                             </div>
-
                                             <div class="form-group col-xl-3 col-md-4 col-sm-12 border-left">
                                                 <div class="form-group">
                                                     <label>Giá</label>
-                                                    <input type="text" class="form-control" name="gia" value="">
-
+                                                    <input type="text" class="form-control" id="price" value="${pro.prices}">
                                                     <div class="form-group">
                                                         <label>Danh mục</label>
-                                                        <select name="dm" class="form-control">
-                                                            <option value="">- Chọn -</option>
-                                                            <option value="">' . $ten_danhmuc . '</option>
+                                                        <select id="categori" class="form-control">
+                                                            ${cateList.map((cate) => `
+                                                            <option value="${cate.id}" ${cate.id === pro.categoriId ? "selected" : ""}>${cate.names}</option>
+                                                            `).join("")}
                                                         </select>
-
                                                     </div>
-
-                                                </div><!-- end row -->
+                                                    <div class="form-group">
+                                                        <div class=" form-group">
+                                                            <label>Chi tiết sp</label><br />
+                                                            <textarea id="content" class="form-control editor"
+                                                                cols="30"
+                                                                rows="10">${pro.contents}</textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div><!-- end row -->
                                     </form>
-
                                 </div>
                                 <!-- end card-body -->
-
                             </div>
                             <!-- end card -->
-
                         </div>
                         <!-- end col -->
-
                     </div>
                     <!-- end row -->
-
-
-
                 </div>
                 <!-- END container-fluid -->
-
             </div>
             <!-- END content -->
-
         </div>
         `
     },
+     afterRender(id){
+        const formAdd = document.getElementById("formEdit");
+        const img = document.getElementById("image");
+        const date = new Date();
+        formAdd.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            
+            const productData = {
+                id: id,
+                titles: document.getElementById("name").value,
+                descs: document.getElementById("desc").value,
+                prices: +document.getElementById("price").value,
+                categoriId: +document.getElementById("categori").value,
+                contents: document.getElementById("content").value,
+                createdAt: date.toString(),
+            };
+
+            if(img.files.length){
+                const response = await uploadImg(img.files[0])
+                productData.images = response.data.url
+            }
+
+            update(productData)
+            .then(() => reLoad(ProductAdmin, "#app"));
+        })
+        
+        
+    }
 };
+
 export default EditProduct;

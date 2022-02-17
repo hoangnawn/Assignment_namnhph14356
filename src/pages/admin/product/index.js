@@ -1,8 +1,12 @@
+import { getProduct, remove } from "../../../api/product";
 import HeaderAdmin from "../../../components/admin/headerAdmin";
 import NavAdmin from "../../../components/admin/navAdmin";
+import { reLoad } from "../../../util/reRender";
 
 const ProductAdmin = {
-    render(){
+    async render(){
+        const { data: pro } = await getProduct();
+        
         return /* html */ `
         ${HeaderAdmin.render()}
         ${NavAdmin.render()}
@@ -33,8 +37,8 @@ const ProductAdmin = {
                         <div class="card mb-3">
 
                             <div class="card-header">
-                                <span class="pull-right"><a href="/admin/product/add"
-                                        class="btn btn-primary btn-sm"><i class="fa fa-plus" aria-hidden="true"></i>
+                                <span class="pull-right"><a href="/#/admin/product/add"
+                                        class=" btn-primary btn-sm"><i class="fa fa-plus" aria-hidden="true"></i>
                                         Thêm sản phẩm</a></span>
                                 <h3><i class="fa fa-file-text-o"></i> Tất cả sản phẩm </h3>
                             </div>
@@ -47,8 +51,6 @@ const ProductAdmin = {
                                         <input type="search" class="form-control rounded" id="search"
                                             name="keywords" placeholder="Tìm kiếm sản phẩm" aria-label="Search"
                                             aria-describedby="search-addon" />
-                                        <!-- <input type="search" class="form-control rounded" id="search" name="id_danhmuc" placeholder="Tìm kiếm sản phẩm"
-          aria-label="Search" aria-describedby="search-addon" /> -->
                                         <button type="submit" name="search">Tìm</button>
                                 </form>
                             </div>
@@ -64,6 +66,7 @@ const ProductAdmin = {
                                     <table class="table table-bordered">
                                         <thead>
                                             <tr>
+                                                <th>Stt</th>
                                                 <th>Sản phẩm</th>
                                                 <th>Ảnh sp</th>
                                                 <th>Giá sp</th>
@@ -74,51 +77,51 @@ const ProductAdmin = {
                                         </thead>
 
                                         <tbody>
-
+                                        ${pro.map((post, index) => /* html */ `
                                             <tr>
                                                 <td>
-
+                                                   <h5>${index + 1}</h5>
+                                                </td>
+                                                <td>
                                                     <h5>
-                                                        Áo
+                                                        ${post.titles} 
                                                     </h5>
-
                                                 </td>
                                                 <td>
                                                     <span
                                                         style="float: left; margin-right:10px; padding-left: 22px;"><img
                                                             alt="anh" width="80px"
-                                                            src="assets/images/products/<?=$anh_sp?>"></span>
+                                                            src="${post.images}"></span>
 
                                                 </td>
                                                 <td>
                                                     <h5>
-                                                        120.000đ
+                                                        ${post.prices}
                                                     </h5>
 
                                                 </td>
                                                 <td>
-                                                    <h5>
-                                                        Đẹp
+                                                    <h5 id="in">
+                                                    <h5>${post.descs}
                                                     </h5>
 
                                                 </td>
                                                 
                                                 <td>
-                                                    Áo
+                                                    <h5>${post.names}</h5>
                                                 </td>
 
                                                 <td>
-                                                    <a href="/admin/product/:id/edit" class="btn btn-primary btn-sm"
+                                                    <a href="/#/admin/product/${post.id}/edit" class="btn-primary btn-sm"
                                                         data-placement="top" data-toggle="tooltip"
                                                         data-title="Edit"><i class="fa fa-pencil"
                                                             aria-hidden="true"></i></a>
-                                                    <a onclick="return confirm('Bạn có chắc muốn xoá')"
-                                                        href="<?=$xoasp?>" class="btn btn-danger btn-sm"><i
-                                                            class="fa fa-trash-o" aria-hidden="true"></i></a>
+                                                    <button data-id="${post.id}"  class="btn btn-danger btn-sm"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
                                                 </td>
                                             </tr>
-
-
+                                        
+                                        `).join("")}
+                                            
                                         </tbody>
                                         
                                     </table>
@@ -145,5 +148,19 @@ const ProductAdmin = {
     </div>
         `
     },
+    afterRender(){
+        const btn = document.querySelectorAll(".btn");
+        btn.forEach((buttonElement)=>{
+            const id = buttonElement.dataset.id;
+            buttonElement.addEventListener("click", () =>{
+                const confirm = window.confirm("Bạn có chắc muốn xóa");
+                if(confirm){
+                    remove(id)
+                        .then(()=> alert("bạn đã xóa thành công"))
+                        .then(()=> reLoad(ProductAdmin, "#app"));
+                }
+            })
+        });
+    }
 };
 export default ProductAdmin;

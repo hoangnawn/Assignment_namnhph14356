@@ -1,8 +1,12 @@
+import axios from "axios";
+import { getAll } from "../../../api/categori";
+import { add } from "../../../api/product";
 import HeaderAdmin from "../../../components/admin/headerAdmin";
 import NavAdmin from "../../../components/admin/navAdmin";
 
 const AddProduct = {
-    render(){
+     async render(){
+        const { data } = await getAll();
         return /* html */ `
         ${HeaderAdmin.render()}
         ${NavAdmin.render()}
@@ -43,34 +47,33 @@ const AddProduct = {
                                     </div>
 
 
-                                    <form action="index.php?act=add-sp" method="post" enctype="multipart/form-data">
+                                    <form action="" id="formAdd">
                                         <div class="row">
 
                                             <div class="form-group col-xl-9 col-md-8 col-sm-12">
                                                 <div class="form-group">
                                                     <label>Tên sp</label>
-                                                    <input class="form-control" name="tensp" type="text" value="">
-                                                    <input class="form-control" name="so_luot_xem" type="hidden">
+                                                    <input class="form-control" id="name" type="text" value="">
 
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label>Mô tả</label>
                                                     <textarea rows="3" class="form-control editor"
-                                                        name="mota"></textarea>
+                                                        id="desc"></textarea>
 
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label>Ảnh sản phẩm</label><br />
-                                                    <input type="file" name="anh_sp">
+                                                    <input type="file" id="image">
 
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <button type="submit" name="btn-them" class="btn btn-primary">Thêm
+                                                    <button type="submit" id="btn-them" class="btn btn-primary">Thêm
                                                         sản phẩm</button>
-                                                    <a href="index.php?act=sanpham"><button type="button"
+                                                    <a href="/admin/product"><button type="button"
                                                             class="btn btn-info">Quay lại</button></a>
                                                 </div>
                                             </div>
@@ -78,39 +81,79 @@ const AddProduct = {
                                             <div class="form-group col-xl-3 col-md-4 col-sm-12 border-left">
                                                 <div class="form-group">
                                                     <label>Giá</label>
-                                                    <input type="text" class="form-control" name="gia" value="">
+                                                    <input type="text" class="form-control" id="price" value="">
 
                                                     <div class="form-group">
                                                         <label>Danh mục</label>
-                                                        <select name="dm" class="form-control">
+                                                        <select id="categori" class="form-control">
                                                             <option value="">- Chọn -</option>
-                                                            <option value="">' . $ten_danhmuc . '</option>
+                                                            ${data.map((cate) => `
+                                                            <option value="${cate.id}">${cate.names}</option>
+                                                            `).join("")}
                                                         </select>
-
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class=" form-group">
+                                                            <label>Chi tiết sp</label><br />
+                                                            <textarea id="content" class="form-control editor"
+                                                                cols="30"
+                                                                rows="10"></textarea>
+                                                        </div>
                                                     </div>
 
                                                 </div><!-- end row -->
+                                            </div>
                                     </form>
-
                                 </div>
                                 <!-- end card-body -->
-
                             </div>
                             <!-- end card -->
-
                         </div>
                         <!-- end col -->
-
                     </div>
                     <!-- end row -->
                 </div>
                 <!-- END container-fluid -->
-
             </div>
             <!-- END content -->
-
         </div>
         `
     },
+    afterRender(){
+        const formAdd = document.getElementById("formAdd");
+        const img = document.getElementById("image");
+        const date = new Date();
+        img.addEventListener('change', async (e) =>{
+            const file = e.target.files[0];
+            const CLOUDINARY_API = "https://api.cloudinary.com/v1_1/dleceiun0/image/upload";
+            
+            const formData = new FormData();
+
+            formData.append('file', file);
+            formData.append('upload_preset', "brakvqrw")
+
+            const response = await axios.post(CLOUDINARY_API, formData, {
+                headers: {
+                  "Content-Type": "application/form-data"
+                }
+            });
+            console.log(response);
+
+            formAdd.addEventListener("submit", (e) => {
+                e.preventDefault();
+                add({
+                    titles: document.getElementById("name").value,
+                    descs: document.getElementById("desc").value,
+                    prices: +document.getElementById("price").value,
+                    categoriId: +document.getElementById("categori").value,
+                    contents: document.getElementById("content").value,
+                    createdAt: date.toString(),
+                    images: response.data.url,
+                })
+            })
+        });
+        
+    }
 };
+
 export default AddProduct;
