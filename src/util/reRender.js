@@ -22,3 +22,5 @@ export const uploadImg = (file) => {
     });
     return response;
 }
+// format monney
+export const monney = (currency) => currency.toLocaleString("it-IT", { style: "currency", currency: "VND" });

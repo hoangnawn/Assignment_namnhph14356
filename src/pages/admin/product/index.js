@@ -1,11 +1,11 @@
-import { getProduct, remove } from "../../../api/product";
+import { getProductCate, remove } from "../../../api/product";
 import HeaderAdmin from "../../../components/admin/headerAdmin";
 import NavAdmin from "../../../components/admin/navAdmin";
 import { reLoad } from "../../../util/reRender";
 
 const ProductAdmin = {
     async render(){
-        const { data: pro } = await getProduct();
+        const { data: pro } = await getProductCate();
         
         return /* html */ `
         ${HeaderAdmin.render()}
@@ -108,7 +108,7 @@ const ProductAdmin = {
                                                 </td>
                                                 
                                                 <td>
-                                                    <h5>${post.names}</h5>
+                                                    <h5>${post.categori.names}</h5>
                                                 </td>
 
                                                 <td>
@@ -116,7 +116,7 @@ const ProductAdmin = {
                                                         data-placement="top" data-toggle="tooltip"
                                                         data-title="Edit"><i class="fa fa-pencil"
                                                             aria-hidden="true"></i></a>
-                                                    <button data-id="${post.id}"  class="btn btn-danger btn-sm"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                                                    <button data-id="${post.id}"  class="abc btn-danger btn-sm"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
                                                 </td>
                                             </tr>
                                         
@@ -149,7 +149,7 @@ const ProductAdmin = {
         `
     },
     afterRender(){
-        const btn = document.querySelectorAll(".btn");
+        const btn = document.querySelectorAll(".abc");
         btn.forEach((buttonElement)=>{
             const id = buttonElement.dataset.id;
             buttonElement.addEventListener("click", () =>{

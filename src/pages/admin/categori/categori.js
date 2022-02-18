@@ -106,7 +106,7 @@ const Categori = {
                                                         class="btn-primary btn-sm"><i
                                                             class="fa fa-pencil" aria-hidden="true"></i></a>
                                                     
-                                                    <button data-id="${cate.id}" class="btn btn-danger btn-sm"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                                                    <button data-id="${cate.id}" class="abc btn-danger btn-sm"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
                                                 </td>
                                         </tr>
                                         `).join("")}
@@ -139,7 +139,7 @@ const Categori = {
             })
         });
 
-        const btn = document.querySelectorAll(".btn");
+        const btn = document.querySelectorAll(".abc");
         btn.forEach((buttonElement)=>{
             const id = buttonElement.dataset.id;
             buttonElement.addEventListener("click", () =>{

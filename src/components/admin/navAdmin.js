@@ -9,7 +9,7 @@ const NavAdmin = {
 
 					<ul>
 						<li class="submenu">
-							<a class="active" href="/admin/"><i class="fa fa-fw fa-bars"></i><span> Bảng điều khiển </span>
+							<a class="active" href="/#/admin/"><i class="fa fa-fw fa-bars"></i><span> Bảng điều khiển </span>
 							</a>
 						</li>
 

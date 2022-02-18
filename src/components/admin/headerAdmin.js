@@ -4,7 +4,7 @@ const HeaderAdmin = {
         <div class="headerbar">
 			<!-- LOGO -->
 			<div class="headerbar-left">
-				<a href="/#/admin/" class="logo"><img alt="Logo" src="https://res.cloudinary.com/dleceiun0/image/upload/v1645004744/zqcleonewwcns2fqltje.png" />Admin</a>
+				<a href="/#/admin/" class="logo">Admin</a>
 			</div>
 			<nav class="navbar-custom">
 

@@ -1,5 +1,5 @@
 {
-  "product": [
+  "products": [
     {
       "id": 1,
       "titles": "Nam ad",
@@ -64,7 +64,7 @@
       "id": 11
     }
   ],
-  "categori": [
+  "categoris": [
     {
       "id": 1,
       "names": "Iphone"
