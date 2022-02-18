@@ -1,3 +1,4 @@
+import axios from "axios";
 import ProductAdmin from ".";
 import { getAll } from "../../../api/categori";
 import { get, update } from "../../../api/product";
@@ -54,7 +55,7 @@ const EditProduct = {
                                             <div class="form-group col-xl-9 col-md-8 col-sm-12">
                                                 <div class="form-group">
                                                     <label>Tên sp</label>
-                                                    <input class="form-control" id="name" type="text" value="${pro.titles}">
+                                                    <input class="form-control" id="name" name=" type="text" value="${pro.titles}">
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Mô tả</label>
@@ -65,7 +66,7 @@ const EditProduct = {
                                                 <div class="form-group">
                                                     <label>Ảnh sản phẩm</label><br />
                                                     <input type="file" id="image">
-                                                    <img src="${pro.images}" class="w-40 py-4 object-cover rounded-md">
+                                                    <img id="imgpre" src="${pro.images}" class="w-40 py-4 object-cover rounded-md">
                                                 </div>
                                                 <div class="form-group">
                                                     <button type="submit" id="btn-them" class="btn btn-primary">Sửa
@@ -116,10 +117,30 @@ const EditProduct = {
         const formAdd = document.getElementById("formEdit");
         const img = document.getElementById("image");
         const date = new Date();
+        const imgPreview = document.querySelector('#imgpre');
+        const CLOUDINARY_API = "https://api.cloudinary.com/v1_1/dleceiun0/image/upload";
+        const CLOUDINARY_PRESET = "brakvqrw";
+        let imgLink = "";
+        img.addEventListener('change', async (e) => {
+            imgPreview.src = URL.createObjectURL(e.target.files[0]);
+        });
         formAdd.addEventListener("submit", async (e) => {
             e.preventDefault();
-            
-            const productData = {
+            const file = img.files[0];
+            if (file) {
+                const formData = new FormData();
+
+                formData.append('file', file);
+                formData.append('upload_preset', CLOUDINARY_PRESET)
+
+                const { data } = await axios.post(CLOUDINARY_API, formData, {
+                    headers: {
+                        "Content-Type": "application/form-data"
+                    }
+                });
+                imgLink = data.url;
+            }
+            update({
                 id: id,
                 titles: document.getElementById("name").value,
                 descs: document.getElementById("desc").value,
@@ -127,14 +148,8 @@ const EditProduct = {
                 categoriId: +document.getElementById("categori").value,
                 contents: document.getElementById("content").value,
                 createdAt: date.toString(),
-            };
-
-            if(img.files.length){
-                const response = await uploadImg(img.files[0])
-                productData.images = response.data.url
-            }
-
-            update(productData)
+                images: imgLink ? imgLink : imgPreview.src,
+            })
             .then(() => reLoad(ProductAdmin, "#app"));
         })
         

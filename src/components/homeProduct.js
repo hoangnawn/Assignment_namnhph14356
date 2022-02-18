@@ -19,11 +19,15 @@ const homeProduct = {
 
                 <div class="col-md-4">
                     <div class="product-item">
-                    <a href="#"><img src="${pro.images}" style="width: 200px; margin-left: 70px; " alt=""></a>
+                    <a href="/#/product/${pro.id}"><img src="${pro.images}" style="width: 200px; margin-left: 70px; " alt=""></a>
                     <div class="down-content">
-                        <a href="#"><h4>${pro.titles}</h4></a>
+                        <a href="/#/product/${pro.id}"><h4>${pro.titles}</h4></a>
                         <h6>${monney(pro.prices)}</h6>
-                        <p>${pro.descs}</p>
+                        <p style="display:inline-block;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        max-width: 40ch">${pro.descs}</p>
                     </div>
                     </div>
                 </div>  

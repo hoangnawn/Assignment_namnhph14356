@@ -5,6 +5,8 @@ import ProductAdmin from "./pages/admin/product";
 import AddProduct from "./pages/admin/product/addproduct";
 import EditProduct from "./pages/admin/product/editproduct";
 import HomePage from "./pages/home";
+import Product from "./pages/product";
+import ProductDetail from "./pages/productDetail";
 
 const router = new Navigo("/", { linksSelector: "a", hash: true });
 
@@ -16,6 +18,12 @@ const print = async (content, id) => {
 router.on({
     "/": () =>{
         print(HomePage)
+    },
+    "/product": () =>{
+        print(Product)
+    },
+    "/product/:id/": ({ data }) =>{
+        print(ProductDetail, data.id)
     },
 
 
@@ -36,6 +44,15 @@ router.on({
     },
     "/admin/categori/:id/edit": ({ data }) =>{
         print(EditCate, data.id)
+    },
+    "/admin/new": () =>{
+        print(ProductAdmin)
+    },
+    "/admin/new/add": () =>{
+        print(AddProduct)
+    },
+    "/admin/new/:id/edit": ({ data }) =>{
+        print(EditProduct, data.id)
     },
 });
 router.notFound(() => print("Not Found Page"));

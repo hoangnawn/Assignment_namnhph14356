@@ -3,7 +3,7 @@ import HeaderAdmin from "../../../components/admin/headerAdmin";
 import NavAdmin from "../../../components/admin/navAdmin";
 import { reLoad } from "../../../util/reRender";
 
-const ProductAdmin = {
+const NewAdmin = {
     async render(){
         const { data: pro } = await getProductCate();
         
@@ -101,12 +101,9 @@ const ProductAdmin = {
 
                                                 </td>
                                                 <td>
-                                                    <h5 style="
-                                                    display:inline-block;
-                                                    white-space: nowrap;
-                                                    overflow: hidden;
-                                                    text-overflow: ellipsis;
-                                                    max-width: 10ch;">${post.descs}</h5>
+                                                    <h5 id="in">
+                                                    <h5>${post.descs}
+                                                    </h5>
 
                                                 </td>
                                                 
@@ -166,4 +163,4 @@ const ProductAdmin = {
         });
     }
 };
-export default ProductAdmin;
+export default NewAdmin;

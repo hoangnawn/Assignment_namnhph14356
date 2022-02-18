@@ -22,10 +22,10 @@ const NavAdmin = {
 						</li>
 
 						<li class="submenu">
-							<a href="index.php?act=news"><i class="fa fa-newspaper-o bigfonts"></i><span> Tin tức </span> </a>
+							<a href="/#/new"><i class="fa fa-newspaper-o bigfonts"></i><span> Tin tức </span> </a>
 						</li>
 						<li class="submenu">
-							<a href="index.php?act=donhang"><i class="fa fa-cart-arrow-down bigfonts"></i><span> Đơn hàng </span> </a>
+							<a href="/#/cart"><i class="fa fa-cart-arrow-down bigfonts"></i><span> Đơn hàng </span> </a>
 						</li>
 						<li class="submenu">
 							<a href="/#/"><i class="fa fa-cart-arrow-down bigfonts"></i><span> WEBSITE </span> </a>

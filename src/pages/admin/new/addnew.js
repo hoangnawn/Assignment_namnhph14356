@@ -3,11 +3,9 @@ import { getAll } from "../../../api/categori";
 import { add } from "../../../api/product";
 import HeaderAdmin from "../../../components/admin/headerAdmin";
 import NavAdmin from "../../../components/admin/navAdmin";
-import $ from 'jquery';
-import validate from 'jquery-validation';
 
-const AddProduct = {
-    async render() {
+const AddNew = {
+     async render(){
         const { data } = await getAll();
         return /* html */ `
         ${HeaderAdmin.render()}
@@ -55,21 +53,21 @@ const AddProduct = {
                                             <div class="form-group col-xl-9 col-md-8 col-sm-12">
                                                 <div class="form-group">
                                                     <label>Tên sp</label>
-                                                    <input class="form-control" id="name" name="name" type="text" value="">
+                                                    <input class="form-control" id="name" type="text" value="">
 
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label>Mô tả</label>
                                                     <textarea rows="3" class="form-control editor"
-                                                        id="desc" name="desc"></textarea>
+                                                        id="desc"></textarea>
 
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label>Ảnh sản phẩm</label><br />
                                                     <input type="file" id="image">
-                                                    <img id="imgpre" src="http://2.bp.blogspot.com/-MowVHfLkoZU/VhgIRyPbIoI/AAAAAAAATtI/fHk-j_MYUBs/s640/placeholder-image.jpg" class="w-40 py-4 object-cover rounded-md">
+
                                                 </div>
 
                                                 <div class="form-group">
@@ -83,7 +81,7 @@ const AddProduct = {
                                             <div class="form-group col-xl-3 col-md-4 col-sm-12 border-left">
                                                 <div class="form-group">
                                                     <label>Giá</label>
-                                                    <input type="text" class="form-control" id="price" name="price"  value="">
+                                                    <input type="text" class="form-control" id="price" value="">
 
                                                     <div class="form-group">
                                                         <label>Danh mục</label>
@@ -97,7 +95,7 @@ const AddProduct = {
                                                     <div class="form-group">
                                                         <div class=" form-group">
                                                             <label>Chi tiết sp</label><br />
-                                                            <textarea id="content" name="content" class="form-control editor"
+                                                            <textarea id="content" class="form-control editor"
                                                                 cols="30"
                                                                 rows="10"></textarea>
                                                         </div>
@@ -121,88 +119,41 @@ const AddProduct = {
         </div>
         `
     },
-    afterRender() {
-        const formAdd = $("#formAdd");
+    afterRender(){
+        const formAdd = document.getElementById("formAdd");
         const img = document.getElementById("image");
         const date = new Date();
-        const imgPreview = document.querySelector('#imgpre');
-        const CLOUDINARY_API = "https://api.cloudinary.com/v1_1/dleceiun0/image/upload";
-        const CLOUDINARY_PRESET = "brakvqrw";
-        let imgLink = "";
+        img.addEventListener('change', async (e) =>{
+            const file = e.target.files[0];
+            const CLOUDINARY_API = "https://api.cloudinary.com/v1_1/dleceiun0/image/upload";
+            
+            const formData = new FormData();
 
+            formData.append('file', file);
+            formData.append('upload_preset', "brakvqrw")
 
-        img.addEventListener('change', async (e) => {
-            imgPreview.src = URL.createObjectURL(e.target.files[0]);
-        });
-        formAdd.validate({
-            rules: {
-                name: {
-                    required: true,
-                    minlength: 5
-                },
-                desc: {
-                    required: true,
-                    minlength: 5
-                },
-                price: {
-                    required: true,
-                    minlength: 5
-                },
-                content: {
-                    required: true,
-                    minlength: 5
-                },
-            },
-            messages: {
-                name: {
-                    required: "Phải nhập vào trường này",
-                    minlength: "Phải nhập trên 5 ký tự"
-                },
-                desc: {
-                    required: "Phải nhập vào trường này",
-                    minlength: "Phải nhập trên 5 ký tự"
-                },
-                price: {
-                    required: "Phải nhập vào trường này",
-                    minlength: "Phải nhập trên 5 ký tự"
-                },
-                content: {
-                    required: "Phải nhập vào trường này",
-                    minlength: "Phải nhập trên 5 ký tự"
-                },
-            },
-            submitHandler: function () {
-                async function addPro() {
-                    const file = img.files[0];
-                    if (file) {
-                        const formData = new FormData();
-
-                        formData.append('file', file);
-                        formData.append('upload_preset', CLOUDINARY_PRESET)
-
-                        const { data } = await axios.post(CLOUDINARY_API, formData, {
-                            headers: {
-                                "Content-Type": "application/form-data"
-                            }
-                        });
-                        imgLink = data.url;
-                    }
-                    add({
-                        titles: document.getElementById("name").value,
-                        descs: document.getElementById("desc").value,
-                        prices: +document.getElementById("price").value,
-                        categoriId: +document.getElementById("categori").value,
-                        contents: document.getElementById("content").value,
-                        createdAt: date.toString(),
-                        images: imgLink ? imgLink : "",
-                    })
+            const response = await axios.post(CLOUDINARY_API, formData, {
+                headers: {
+                  "Content-Type": "application/form-data"
                 }
+            });
+            console.log(response);
 
-                addPro()
-            }
+            formAdd.addEventListener("submit", (e) => {
+                e.preventDefault();
+                add({
+                    titles: document.getElementById("name").value,
+                    descs: document.getElementById("desc").value,
+                    prices: +document.getElementById("price").value,
+                    categoriId: +document.getElementById("categori").value,
+                    contents: document.getElementById("content").value,
+                    createdAt: date.toString(),
+                    images: response.data.url,
+                })
+            })
         });
-
+        
     }
 };
 
-export default AddProduct;
+export default AddNew;

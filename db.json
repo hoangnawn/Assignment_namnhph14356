@@ -2,35 +2,33 @@
   "products": [
     {
       "id": 1,
-      "titles": "Nam ad",
-      "descs": "mô tả",
-      "prices": "90000",
+      "titles": "iPhone 11 64GB ",
+      "descs": "iPhone 11 64GB cũ là phiên bản thấp nhất dòng iPhone 11 của Apple. Do đó, máy có giá rẻ nhất. Tuy nhiên, Apple iPhone 11 64GB chính hãng vẫn sở hữu những tính năng nổi bật như camera kép, màn hình 6.1 inch, thiết kế đẹp mắt, bảo mật Face ID thế hệ tiếp theo, bộ xử lý điện thoại mạnh nhất và tuổi thọ pin tuyệt vời.",
+      "prices": 14200000,
       "categoriId": 1,
-      "contents": "chi tiết",
-      "updatedAt": "Wed Feb 16 2022 17:00:40 GMT+0700 (Giờ Đông Dương)",
-      "images": "http://res.cloudinary.com/dleceiun0/image/upload/v1645005647/nbkocwlfk63rl8gwrjox.jpg"
+      "contents": "Công nghệ màn hình\n\nIPS LCD\nĐộ phân giải\n\n828 x 1792 pixels\nMàn hình rộng\n\n6.1 inches\nCamera sau\n\n12 MP + 12 MP\nQuay phim\n\n2160p@24/30/60fps, 1080p@30/60/120/240fps, HDR, stereo sound rec.\nCamera trước\n\n12 MP, f/2.2\nHệ điều hành\n\niOS 13\nChipset (hãng SX CPU)\n\nApple A13 Bionic\nTốc độ CPU\n\nHexa-core\nRAM\n\n4 GB\nBộ nhớ trong\n\n64 GB\nSIM\n\nNano SIM\nWifi\n\nWi-Fi 802.11 a/b/g/n/ac/ax, dual-band, hotspot\nGPS\n\nA-GPS, GLONASS, GALILEO, QZSS\nBluetooth\n\n5.0, A2DP, LE\nKích thước\n\n150.9 x 75.7 x 8.3 mm\nTrọng lượng\n\n194 g\nLoại pin\n\nLi-Ion",
+      "createdAt": "Fri Feb 18 2022 23:04:44 GMT+0700 (Giờ Đông Dương)",
+      "images": "http://res.cloudinary.com/dleceiun0/image/upload/v1645200311/kxbzathtuqnzm55gtbxq.png"
     },
     {
-      "titles": "Nguyen Hoang Nam",
-      "descs": "da",
-      "prices": "20000000",
-      "categoriId": "4",
-      "contents": "da",
-      "createdAt": "Wed Feb 16 2022 13:28:33 GMT+0700 (Giờ Đông Dương)",
-      "updatedAt": "2022-02-09T15:00:50.038Z",
-      "images": "http://res.cloudinary.com/dleceiun0/image/upload/v1644992930/arkmeismqlxabwj6vgyy.png",
-      "id": 6
+      "id": 6,
+      "titles": "Samsung Galaxy S22 Chính Hãng",
+      "descs": "Samsung Galaxy S22 128GB sở hữu thiết kế hiện đại, cao cấp với màn hình rộng 6.1 inch, cùng công nghệ màn hình Dynamic AMOLED 2X, 120Hz. Máy được trang bị hiệu năng mạnh mẽ với Snapdragon 8 Gen 1, hệ điều hành Android 12 giao diện One UI 4.0. Đồng thời camera 50MP cũng là điểm nhấn đặc biệt trên máy.",
+      "prices": 22000000,
+      "categoriId": 2,
+      "contents": "Công nghệ màn hình\n\nDynamic AMOLED 2X\nĐộ phân giải\n\nFull HD+ (1080 x 2340 Pixels)\nMàn hình rộng\n\n6.1\" - Tần số quét 120Hz\nMặt kính cảm ứng\n\nKính cường lực Corning Gorilla Glass Victus+\nCamera sau\n\n50 MP + 12 MP + 10 MP\nQuay phim\n\nUHD 8K (7680 x 4320)@24fps\nĐèn Flash\n\nĐèn flash kép\nChụp ảnh nâng cao\n\nChụp đêm Nightography / Chế độ Super HDR / Chụp hình & quay phim với Portrait AI / Chống rung kỹ thuật số AI VDIS / Zoom kĩ thuật số 30x, Zoom quang học 3x\nCamera trước\n\n10 MP\nVideocall\n\n1080P@30/60FPS / 720P/30FPS\nThông tin khác\n\nTự động lấy nét / Nhận diện khuôn mặt / Quay video Full HD / Selfie ngược sáng / HDR\nHệ điều hành\n\nAndroid 12 - OneUI 4.0\nChipset (hãng SX CPU)\n\nQualcomm Snapdragon 8 Gen 1\nTốc độ CPU\n\n1 nhân 2.99 GHz & 3 nhân 2.4 GHz & 4 nhân 1.7 GHz\nChip đồ họa (GPU)\n\nQualcomm Adreno GPU\nRAM\n\n8 GB\nBộ nhớ trong\n\n128 GB\nThẻ nhớ ngoài\n\nKhông\nMạng di động\n\nHỗ trợ 5G\nSIM\n\n2 SIM (1 nano SIM + 1 eSIM)",
+      "createdAt": "Fri Feb 18 2022 23:08:04 GMT+0700 (Giờ Đông Dương)",
+      "images": "http://res.cloudinary.com/dleceiun0/image/upload/v1645200591/czvlcow3pdzbym5pxwrx.jpg"
     },
     {
-      "titles": "Nguyen Hoang Nam",
-      "descs": "da",
-      "prices": "20000000",
-      "categoriId": "4",
-      "contents": "da",
-      "createdAt": "Wed Feb 16 2022 13:28:33 GMT+0700 (Giờ Đông Dương)",
-      "updatedAt": "2022-02-09T15:00:50.038Z",
-      "images": "http://res.cloudinary.com/dleceiun0/image/upload/v1644992930/arkmeismqlxabwj6vgyy.png",
-      "id": 7
+      "id": 7,
+      "titles": "Samsung Galaxy S22 Ultra",
+      "descs": "Samsung Galaxy S22 Ultra 128GB sở hữu thiết kế cao cấp với màn hình 6.8 inch độ phân giải QuadHD+ (2K), tấm nền Dynamic AMOLED tần số quét 120Hz, cấu hình mạnh mẽ với vi xử lý Snapdragon 8 Gen 1, giao diện OneUI 4.0 trên nền tảng Android 12 mới nhất. Bộ 4 camera với camera chính 108MP mang lại khả năng chụp ảnh đỉnh cao hỗ trợ nhiều filter, chế độ chụp ảnh khác nhau.",
+      "prices": 30000000,
+      "categoriId": 2,
+      "contents": "Công nghệ màn hình\n\nDynamic AMOLED 2X\nĐộ phân giải\n\nQHD+ (1440 x 3088 pixels)\nMàn hình rộng\n\n6.8\" - Tần số quét 120Hz\nMặt kính cảm ứng\n\nKính cường lực Corning Gorilla Glass Victus+\nCamera sau\n\n108 MP + 12 MP + 10 MP + 10 MP\nQuay phim\n\n8K@24fps / 4K@30/60fps / 1080p@30/60/240fps / 720p@960fps / HDR10+ stereo sound rec. / gyro-EIS\nĐèn Flash\n\nCó\nChụp ảnh nâng cao\n\nChạm lấy nét / HDR / Làm đẹp / Lấy nét theo pha (PDAF) / Nhận diện khuôn mặt / Siêu cận (Macro) / Toàn cảnh (Panorama) / Tự động lấy nét (AF) / Xóa phông / Zoom kỹ thuật số\nCamera trước\n\n40 MP\nVideocall\n\n4K@30/60FPS / 1080P@30/60FPS / 720P/30FPS\nThông tin khác\n\nHDR / Nhận diện khuôn mặt / Quay video 4K / Quay video Full HD / Quay video HD / Tự động lấy nét (AF) / Xóa phông\nHệ điều hành\n\nAndroid 12 - OneUI 4.0\nChipset (hãng SX CPU)\n\nQualcomm Snapdragon 8 Gen 1\nTốc độ CPU\n\n1 nhân 3.0 GHz & 3 nhân 2.5 GHz & 4 nhân 1.8 GHz\nChip đồ họa (GPU)\n\nQualcomm Adreno GPU\nRAM\n\n8 GB\nBộ nhớ trong\n\n128 GB\nThẻ nhớ ngoài\n\nKhông\nMạng di động\n\n5G",
+      "createdAt": "Fri Feb 18 2022 23:15:21 GMT+0700 (Giờ Đông Dương)",
+      "images": "http://res.cloudinary.com/dleceiun0/image/upload/v1645201003/ybhpwchsuec9zr1opaas.jpg"
     },
     {
       "titles": "Hyundai Kona 1.6 Turbo 2021",
@@ -62,6 +60,16 @@
       "createdAt": "Wed Feb 16 2022 19:34:54 GMT+0700 (Giờ Đông Dương)",
       "images": "http://res.cloudinary.com/dleceiun0/image/upload/v1645014913/rw2cume5rpzgae8fsxdi.jpg",
       "id": 11
+    },
+    {
+      "titles": "iPhone 13 Pro Max 128GB",
+      "descs": "Điện thoại iPhone 13 phiên bản Pro Max chắc chắn sẽ là chiếc smartphone cao cấp được quan tâm nhiều nhất trong năm 2021.",
+      "prices": 36000000,
+      "categoriId": 1,
+      "contents": "Kích thước màn hình\t6.7 inches\nCông nghệ màn hình\tOLED\nCamera sau\tCamera góc rộng: 12MP, ƒ/1.5\nCamera góc siêu rộng: 12MP, ƒ/1.8\nCamera tele : 12MP, /2.8\nCamera trước\t12MP, ƒ/2.2\nChipset\tApple A15\nDung lượng RAM\t6 GB\nBộ nhớ trong\t128 GB\nPin\t4,325mAh\nThẻ SIM\t2 SIM (nano‑SIM và eSIM)\nHệ điều hành\tiOS15\nĐộ phân giải màn hình\t2778 x 1284 pixel\nKích thước\t160.8 x 78.1 x 7.65mm\nTrọng lượng\t240g\nBluetooth\tv5.0",
+      "createdAt": "Fri Feb 18 2022 22:40:34 GMT+0700 (Giờ Đông Dương)",
+      "images": "http://res.cloudinary.com/dleceiun0/image/upload/v1645198862/aa2toxxm8yf1dtwvjzqj.jpg",
+      "id": 12
     }
   ],
   "categoris": [

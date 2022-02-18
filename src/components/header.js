@@ -1,7 +1,6 @@
 const Header = {
     render(){
         return /* html */ `
-        
         <header class="">
       <nav class="navbar navbar-expand-lg">
         <div class="container">
@@ -17,13 +16,13 @@ const Header = {
                 </a>
               </li> 
               <li class="nav-item">
-                <a class="nav-link" href="products.html">Sản phẩm</a>
+                <a class="nav-link" href="/#/product">Sản phẩm</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="about.html">Tin tức</a>
+                <a class="nav-link" href="/#/new">Tin tức</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="contact.html">Liên hệ</a>
+                <a class="nav-link" href="/#/contact">Liên hệ</a>
               </li>
             </ul>
           </div>
