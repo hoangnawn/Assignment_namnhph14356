@@ -4,6 +4,8 @@ import Dashbroad from "./pages/admin/dashboard";
 import ProductAdmin from "./pages/admin/product";
 import AddProduct from "./pages/admin/product/addproduct";
 import EditProduct from "./pages/admin/product/editproduct";
+import SignIn from "./pages/auth/signin";
+import SignUp from "./pages/auth/signup";
 import HomePage from "./pages/home";
 import Product from "./pages/product";
 import ProductDetail from "./pages/productDetail";
@@ -26,7 +28,13 @@ router.on({
         print(ProductDetail, data.id)
     },
 
-
+    "/signin": () =>{
+        print(SignIn)
+    },
+    "/signup": () =>{
+        print(SignUp)
+    },
+    
     "/admin": () =>{
         print(Dashbroad)
     },

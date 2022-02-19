@@ -25,10 +25,19 @@ const Header = {
                 <a class="nav-link" href="/#/contact">Liên hệ</a>
               </li>
             </ul>
+            <div class="dropdown navbar-nav ml-auto">
+            <a href="/#/signin" class="nut_dropdown">Đăng nhập</a>
+            <div class="noidung_dropdown">
+              <a href="/#/signup">Đăng ký</a>
+            </div>
+          </div>
+          <a class="ico" href="/#/cart"><i class=" fa fa-cart-arrow-down"></i></a>
           </div>
         </div>
       </nav>
     </header>
+
+    
         `
     },
 };

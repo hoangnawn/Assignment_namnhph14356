@@ -13,6 +13,7 @@
     "jquery": "^3.6.0",
     "jquery-validation": "^1.19.3",
     "json-server-relationship": "^0.14.5",
+    "mdb-ui-kit": "^3.10.2",
     "navigo": "^8.11.1",
     "toastr": "^2.1.4",
     "vue": "^3.2.25"

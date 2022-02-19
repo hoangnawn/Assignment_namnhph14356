@@ -86,7 +86,20 @@
       "id": 4
     }
   ],
-  "profile": {
-    "name": "typicode"
-  }
+  "users": [
+    {
+      "username": "admin",
+      "email": "namnhph14356@fpt.edu.vn",
+      "password": "65+555+5+",
+      "role": 2,
+      "id": 1
+    },
+    {
+      "username": "Hoàng Nam",
+      "email": "nam@123.com",
+      "password": "123456",
+      "role": 2,
+      "id": 2
+    }
+  ]
 }

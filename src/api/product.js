@@ -27,3 +27,7 @@ import instance from "./config";
         const url = `/products/${cateId}`;
         return instance.get(url);
     }
+    export const ProductCate = (cateId) =>{
+        const url = `/products/?categoriId=${cateId}&_expand=categori`;
+        return instance.get(url);
+    }
