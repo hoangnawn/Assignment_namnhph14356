@@ -1,13 +1,18 @@
 import Navigo from "navigo";
 import Categori from "./pages/admin/categori/categori";
 import Dashbroad from "./pages/admin/dashboard";
+import NewAdmin from "./pages/admin/new";
+import AddNew from "./pages/admin/new/addnew";
 import ProductAdmin from "./pages/admin/product";
 import AddProduct from "./pages/admin/product/addproduct";
 import EditProduct from "./pages/admin/product/editproduct";
 import SignIn from "./pages/auth/signin";
 import SignUp from "./pages/auth/signup";
 import HomePage from "./pages/home";
+import NewHome from "./pages/new";
+import NewDetail from "./pages/newDetail";
 import Product from "./pages/product";
+import ProductCate from "./pages/productCate";
 import ProductDetail from "./pages/productDetail";
 
 const router = new Navigo("/", { linksSelector: "a", hash: true });
@@ -16,7 +21,22 @@ const print = async (content, id) => {
     document.getElementById("app").innerHTML = await content.render(id);
     if(content.afterRender) content.afterRender(id);
 };
-
+router.on("/admin/*", () => {}, {
+    before(done, match) {
+      // do something
+      if(localStorage.getItem('user')){
+        const userId = JSON.parse(localStorage.getItem('user')).role;
+        if(userId === 1){
+            done();  
+        } else {
+            document.location.href="/";
+        }
+      } else{
+          document.location.href="/";
+      }
+      
+    }
+  })
 router.on({
     "/": () =>{
         print(HomePage)
@@ -27,12 +47,19 @@ router.on({
     "/product/:id/": ({ data }) =>{
         print(ProductDetail, data.id)
     },
-
+    "/category/:id/": ({ data }) => {
+        print(ProductCate, data.id);
+    },
     "/signin": () =>{
         print(SignIn)
     },
     "/signup": () =>{
         print(SignUp)
+    },
+    "/new": () =>{
+        print(NewHome)
+    },"/new/:id/": ({ data }) =>{
+        print(NewDetail, data.id)
     },
     
     "/admin": () =>{
@@ -54,14 +81,12 @@ router.on({
         print(EditCate, data.id)
     },
     "/admin/new": () =>{
-        print(ProductAdmin)
+        print(NewAdmin)
     },
     "/admin/new/add": () =>{
-        print(AddProduct)
+        print(AddNew)
     },
-    "/admin/new/:id/edit": ({ data }) =>{
-        print(EditProduct, data.id)
-    },
+
 });
 router.notFound(() => print("Not Found Page"));
 router.resolve();

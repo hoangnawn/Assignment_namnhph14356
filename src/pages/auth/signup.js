@@ -39,6 +39,7 @@ const SignUp = {
         `
     },
     afterRender(){
+        Header.afterRender();
         const formSigup = $('#signup');
         formSigup.validate({
             rules: {
@@ -88,6 +89,6 @@ const SignUp = {
                 signupUser();
             }
         })
-    }
+    },
 };
 export default SignUp;

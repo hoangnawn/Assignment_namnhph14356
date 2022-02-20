@@ -1,16 +1,19 @@
 import { getAll } from "../api/categori";
-import { getProduct } from "../api/product";
+import { getProductCategori } from "../api/product";
 import Footer from "../components/footer";
 import Header from "../components/header";
 import { monney } from "../util/reRender";
 
-const Product = {
-    async render(){
+const ProductCate = {
+    async render(id){
+        console.log(id);
         const { data: cate } = await getAll();
-        const { data: pro } = await getProduct();
-
+        const { data: pro } = await getProductCategori(id);
+        console.log(pro);
         return /* html */ `
-        ${Header.render()}
+
+        ${Header.render()};
+             
         <div class="page-heading products-heading header-text">
             <div class="container">
                 <div class="row">
@@ -28,7 +31,7 @@ const Product = {
                 <div class="col-md-12">
                     <div class="filters">
                     <ul>
-                        <li class="active" data-filter="*">Tất cả sản phẩm</li>
+                        <li><a class="active" data-filter="*" href="/#/product/">Tất cả sản phẩm</a></li>
                         ${cate.map((cat) =>`
                         <li><a href="/#/category/${cat.id}/">${cat.names}</a></li>
 
@@ -63,11 +66,11 @@ const Product = {
                 </div>
             </div>
         </div>
-        ${Footer.render()}        
+        ${Footer.render()}
         `
     },
     afterRender(){
         Header.afterRender();
     }
 };
-export default Product;
+export default ProductCate;

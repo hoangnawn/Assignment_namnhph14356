@@ -6,5 +6,5 @@ export const signup = (user) => {
 }
 export const signin = (user) => {
     const url = "/signin";
-    return instance.get(url, user);
+    return instance.post(url, user);
 }

@@ -61,8 +61,7 @@ const AddProduct = {
 
                                                 <div class="form-group">
                                                     <label>Mô tả</label>
-                                                    <textarea rows="3" class="form-control editor"
-                                                        id="desc" name="desc"></textarea>
+                                                    <textarea name="area2" cols="30" rows="10" id="desc" class="form-control editor" style="width: 100%;"></textarea><br>                                                    
 
                                                 </div>
 
@@ -97,9 +96,10 @@ const AddProduct = {
                                                     <div class="form-group">
                                                         <div class=" form-group">
                                                             <label>Chi tiết sp</label><br />
-                                                            <textarea id="content" name="content" class="form-control editor"
-                                                                cols="30"
-                                                                rows="10"></textarea>
+                                                            
+                                                            <textarea name="area2" cols="30" rows="10" id="content" class="form-control editor" style="width: 100%;"></textarea><br>                                                    
+
+
                                                         </div>
                                                     </div>
 
@@ -122,6 +122,7 @@ const AddProduct = {
         `
     },
     afterRender() {
+       
         const formAdd = $("#formAdd");
         const img = document.getElementById("image");
         const date = new Date();
@@ -199,6 +200,8 @@ const AddProduct = {
                 }
 
                 addPro()
+                .then(() => reLoad(ProductAdmin, "#app"));
+
             }
         });
 

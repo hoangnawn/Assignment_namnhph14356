@@ -1,4 +1,3 @@
-import Banner from "../components/banner";
 import Footer from "../components/footer";
 import Header from "../components/header";
 import homeProduct from "../components/homeProduct";
@@ -7,7 +6,7 @@ const HomePage = {
     async render(){
         return /* html */ `
 
-        ${Header.render()};
+        ${await Header.render()};
 
         <div class="banner header-text">
         <div class="owl-banner">
@@ -41,5 +40,8 @@ const HomePage = {
         ${Footer.render()}
         `
     },
+    afterRender(){
+        Header.afterRender();
+    }
 };
 export default HomePage;

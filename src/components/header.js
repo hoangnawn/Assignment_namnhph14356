@@ -1,6 +1,8 @@
+import { reLoad } from "../util/reRender";
+
 const Header = {
-    render(){
-        return /* html */ `
+  render() {
+    return /* html */ `
         <header class="">
       <nav class="navbar navbar-expand-lg">
         <div class="container">
@@ -25,12 +27,19 @@ const Header = {
                 <a class="nav-link" href="/#/contact">Liên hệ</a>
               </li>
             </ul>
-            <div class="dropdown navbar-nav ml-auto">
-            <a href="/#/signin" class="nut_dropdown">Đăng nhập</a>
+          <div id="acchide" class="dropdown navbar-nav ml-auto">
+            <a href="/#/signin" id="account" class="nut_dropdown">Đăng nhập</a>
             <div class="noidung_dropdown">
               <a href="/#/signup">Đăng ký</a>
             </div>
           </div>
+          <div id="accshow" class="dropdown navbar-nav ml-auto">
+            <a href="" id="acc" class="nut_dropdown"></a>
+            <div class="noidung_dropdown">
+            ${localStorage.getItem('user') ? '<button id="logout">Đăng Xuất</button>' : ""}
+            </div>
+          </div>
+
           <a class="ico" href="/#/cart"><i class=" fa fa-cart-arrow-down"></i></a>
           </div>
         </div>
@@ -39,6 +48,23 @@ const Header = {
 
     
         `
-    },
+  },
+  afterRender() {
+    if (localStorage.getItem('user') !== null) {
+      const account = document.querySelector('#acc');
+      const logout = document.querySelector('#logout');
+      $('#acchide').hide()
+      account.innerHTML = JSON.parse(localStorage.getItem('user')).username;
+      logout.addEventListener('click', function () {
+        localStorage.removeItem('user');
+        alert("Đăng xuất thành công")
+        window.location.reload();
+      });
+    } else {
+      $('#acchide').show()
+      $('#accshow').hide()
+
+    }
+  }
 };
 export default Header;

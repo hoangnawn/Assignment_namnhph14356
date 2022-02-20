@@ -1,11 +1,13 @@
-import { getProductCate, remove } from "../../../api/product";
+import { getAll } from "../../../api/new";
+import { remove } from "../../../api/new";
 import HeaderAdmin from "../../../components/admin/headerAdmin";
 import NavAdmin from "../../../components/admin/navAdmin";
 import { reLoad } from "../../../util/reRender";
+import ProductAdmin from "../product";
 
 const NewAdmin = {
     async render(){
-        const { data: pro } = await getProductCate();
+        const { data: pro } = await getAll();
         
         return /* html */ `
         ${HeaderAdmin.render()}
@@ -20,10 +22,10 @@ const NewAdmin = {
                 <div class="row">
                     <div class="col-xl-12">
                         <div class="breadcrumb-holder">
-                            <h1 class="main-title float-left">Sản phẩm</h1>
+                            <h1 class="main-title float-left">Tin tức</h1>
                             <ol class="breadcrumb float-right">
                                 <li class="breadcrumb-item">Trang chủ</li>
-                                <li class="breadcrumb-item active">Sản phẩm</li>
+                                <li class="breadcrumb-item active">Tin tức</li>
                             </ol>
                             <div class="clearfix"></div>
                         </div>
@@ -37,16 +39,14 @@ const NewAdmin = {
                         <div class="card mb-3">
 
                             <div class="card-header">
-                                <span class="pull-right"><a href="/#/admin/product/add"
+                                <span class="pull-right"><a href="admin/new/add"
                                         class=" btn-primary btn-sm"><i class="fa fa-plus" aria-hidden="true"></i>
-                                        Thêm sản phẩm</a></span>
-                                <h3><i class="fa fa-file-text-o"></i> Tất cả sản phẩm </h3>
+                                        Thêm tin tức</a></span>
+                                <h3><i class="fa fa-file-text-o"></i> Tất cả tin tức </h3>
                             </div>
                             <div>
                                 <form action="index.php?act=sp-search" method="POST">
-                                    <div class="input-group rounded" id="input">
-
-
+                                    <div class="input-group rounded" id="input">    
 
                                         <input type="search" class="form-control rounded" id="search"
                                             name="keywords" placeholder="Tìm kiếm sản phẩm" aria-label="Search"
@@ -63,15 +63,13 @@ const NewAdmin = {
                                 </div>
 
                                 <div class="table-responsive">
-                                    <table class="table table-bordered">
+                                    <table height="50px" class="table table-bordered">
                                         <thead>
                                             <tr>
                                                 <th>Stt</th>
-                                                <th>Sản phẩm</th>
-                                                <th>Ảnh sp</th>
-                                                <th>Giá sp</th>
+                                                <th>Tiêu đề</th>
+                                                <th>Ảnh</th>
                                                 <th>Mô tả</th>
-                                                <th style="width:140px">Danh mục</th>
                                                 <th style="width:150px">Chức năng</th>
                                             </tr>
                                         </thead>
@@ -83,7 +81,12 @@ const NewAdmin = {
                                                    <h5>${index + 1}</h5>
                                                 </td>
                                                 <td>
-                                                    <h5>
+                                                    <h5 style="
+                                                    display:inline-block;
+                                                    white-space: nowrap;
+                                                    overflow: hidden;
+                                                    text-overflow: ellipsis;
+                                                    max-width: 10ch;">
                                                         ${post.titles} 
                                                     </h5>
                                                 </td>
@@ -94,29 +97,22 @@ const NewAdmin = {
                                                             src="${post.images}"></span>
 
                                                 </td>
-                                                <td>
-                                                    <h5>
-                                                        ${post.prices}
-                                                    </h5>
-
-                                                </td>
-                                                <td>
-                                                    <h5 id="in">
-                                                    <h5>${post.descs}
-                                                    </h5>
-
-                                                </td>
                                                 
-                                                <td>
-                                                    <h5>${post.categori.names}</h5>
+                                                <td style="
+                                                overflow: hidden;
+                                                text-overflow: ellipsis;
+                                                max-width: 10ch;">
+                                                    <h5 style="max-height:50px">${post.descs}
+                                                    </h5>
+
                                                 </td>
 
                                                 <td>
-                                                    <a href="/#/admin/product/${post.id}/edit" class="btn-primary btn-sm"
+                                                    <a href="/#/admin/new/${post.id}/edit" class="btn-primary btn-sm"
                                                         data-placement="top" data-toggle="tooltip"
                                                         data-title="Edit"><i class="fa fa-pencil"
-                                                            aria-hidden="true"></i></a>
-                                                    <button data-id="${post.id}"  class="abc btn-danger btn-sm"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                                                            aria-hidden="true"></i>Sửa</a>
+                                                    <button data-id="${post.id}"  class="abc btn-danger btn-sm"><i class="fa fa-trash-o" aria-hidden="true"></i>Xóa</button>
                                                 </td>
                                             </tr>
                                         
@@ -157,7 +153,7 @@ const NewAdmin = {
                 if(confirm){
                     remove(id)
                         .then(()=> alert("bạn đã xóa thành công"))
-                        .then(()=> reLoad(ProductAdmin, "#app"));
+                        .then(()=> reLoad(NewAdmin, "#app"));
                 }
             })
         });

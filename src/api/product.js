@@ -23,11 +23,7 @@ import instance from "./config";
         const url = `/products/${post.id}`;
         return instance.put(url, post)
     }
-    export const cate = (cateId) =>{
-        const url = `/products/${cateId}`;
-        return instance.get(url);
-    }
-    export const ProductCate = (cateId) =>{
-        const url = `/products/?categoriId=${cateId}&_expand=categori`;
+    export const getProductCategori = (id) =>{
+        const url = `products/?categoriId=${id}&_expand=categori`;
         return instance.get(url);
     }

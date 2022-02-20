@@ -1,13 +1,12 @@
-import { getAll } from "../api/categori";
-import { getProduct } from "../api/product";
+
+import { getAll } from "../api/new";
 import Footer from "../components/footer";
 import Header from "../components/header";
 import { monney } from "../util/reRender";
 
-const Product = {
+const NewHome = {
     async render(){
-        const { data: cate } = await getAll();
-        const { data: pro } = await getProduct();
+        const { data: pro } = await getAll()
 
         return /* html */ `
         ${Header.render()}
@@ -16,7 +15,7 @@ const Product = {
                 <div class="row">
                 <div class="col-md-12">
                     <div class="text-content">
-                    <h4>Tất cả sản phẩm</h4>
+                    <h4>Tin tức</h4>
                     </div>
                 </div>
                 </div>
@@ -26,31 +25,14 @@ const Product = {
             <div class="container">
                 <div class="row">
                 <div class="col-md-12">
-                    <div class="filters">
-                    <ul>
-                        <li class="active" data-filter="*">Tất cả sản phẩm</li>
-                        ${cate.map((cat) =>`
-                        <li><a href="/#/category/${cat.id}/">${cat.names}</a></li>
-
-                        `).join("")}
-                    </ul>
-                    </div>
-                </div>
-                <div class="col-md-12">
                     <div class="filters-content">
                         <div class="row grid">
                             ${pro.map((proo) =>  /* html */ `
                             <div class="col-lg-4 col-md-4 all des">
                             <div class="product-item">
-                                <a href="/#/product/${proo.id}"><img src="${proo.images}" style="width: 200px; margin-left: 70px;" alt=""></a>
+                                <a href="/#/new/${proo.id}"><img src="${proo.images}" style="width: 300px; margin-left: 15px;" alt=""></a>
                                 <div class="down-content">
-                                    <a href="/#/product/${proo.id}"><h4>${proo.titles}</h4></a>
-                                    <h6>${monney(proo.prices)}</h6>
-                                    <p style="display:inline-block;
-                                    white-space: nowrap;
-                                    overflow: hidden;
-                                    text-overflow: ellipsis;
-                                    max-width: 40ch">${proo.descs}</p>
+                                    <a href="/#/new/${proo.id}"><h4>${proo.titles}</h4></a>
                                 </div>
                             </div>
                             </div>
@@ -70,4 +52,4 @@ const Product = {
         Header.afterRender();
     }
 };
-export default Product;
+export default NewHome;

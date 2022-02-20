@@ -38,7 +38,8 @@ const SignIn = {
         `
     },
     afterRender(){
-        const formSigIn = $('#signin');
+        Header.afterRender();
+        const formSigIn = document.querySelector('#signin');
         formSigIn.addEventListener('submit', async (e) => {
             e.preventDefault();
             try {
@@ -46,6 +47,7 @@ const SignIn = {
                     email: document.querySelector('#email').value,
                     password: document.querySelector('#pass').value,
                 });
+                
                 localStorage.setItem('user', JSON.stringify(response.data.user));
                 if(response.data.user.role === 1){
                     document.location.href="/admin/";
@@ -57,6 +59,6 @@ const SignIn = {
                 console.log(error.response.data);
             }
         });
-    }
+    },
 };
 export default SignIn;

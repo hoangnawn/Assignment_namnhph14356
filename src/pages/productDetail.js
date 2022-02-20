@@ -68,5 +68,8 @@ const ProductDetail = {
         ${Footer.render()}
         `
     },
+    afterRender(){
+        Header.afterRender();
+    }
 };
 export default ProductDetail;
