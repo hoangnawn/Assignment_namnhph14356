@@ -140,6 +140,15 @@
       "total": "139.600.000 VND",
       "status": "Chờ xác nhận",
       "id": 4
+    },
+    {
+      "name": "Hoàng Nam",
+      "email": "admin@admin.com",
+      "address": "Ha Noi",
+      "creatdate": "2022-02-21",
+      "total": "114.000.000 VND",
+      "status": "Chờ xác nhận",
+      "id": 5
     }
   ],
   "orderDetails": [
@@ -156,6 +165,20 @@
       "productPrice": 21900000,
       "quantity": 4,
       "id": 12
+    },
+    {
+      "orderId": 5,
+      "productId": 17,
+      "productPrice": 26000000,
+      "quantity": 3,
+      "id": 13
+    },
+    {
+      "orderId": 5,
+      "productId": 12,
+      "productPrice": 36000000,
+      "quantity": 1,
+      "id": 14
     }
   ]
 }
