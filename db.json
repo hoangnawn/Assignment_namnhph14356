@@ -133,22 +133,22 @@
   ],
   "orders": [
     {
+      "id": 4,
       "name": "Hoàng Nam",
-      "email": "admin@admin.com",
       "address": "Ha Noi",
+      "email": "admin@admin.com",
       "creatdate": "2022-02-21",
       "total": "139.600.000 VND",
-      "status": "Chờ xác nhận",
-      "id": 4
+      "status": 1
     },
     {
+      "id": 5,
       "name": "Hoàng Nam",
-      "email": "admin@admin.com",
       "address": "Ha Noi",
+      "email": "admin@admin.com",
       "creatdate": "2022-02-21",
       "total": "114.000.000 VND",
-      "status": "Chờ xác nhận",
-      "id": 5
+      "status": 3
     }
   ],
   "orderDetails": [

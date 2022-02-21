@@ -28,6 +28,6 @@ import instance from "./config";
         return instance.put(url, post)
     }
     export const getOrderDetail = (id) =>{
-        const url = `orderDetails/?productId=${id}&_expand=product`;
+        const url = `orderDetails/?orderId=${id}&_expand=product`;
         return instance.get(url);
     }

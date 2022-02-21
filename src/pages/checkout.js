@@ -125,7 +125,7 @@ const CheckOut = {
                address: document.querySelector("#address").value,  
                creatdate: new Date().toISOString().slice(0,10),
                total: monney(getTotalPrice()),
-               status: "Chờ xác nhận",
+               status: 0,
             };
             const { data } = await add(orderData);
             const orderId = data.id;

@@ -68,7 +68,7 @@ const CartAdmin = {
                                                     <td>${list.creatdate}</td>
                                                     <td>${list.address}</td>
                                                     <td>${list.total}</td>
-                                                    <td>${list.status}</td>
+                                                    <td>${list.status == 0 ? "Chưa xác nhận" : list.status == 1? "Đã Xác nhận": "Đã hủy"}</td>
                                                     <td>
                                                     <a href="/#/admin/order/${list.id}/edit" class="btn-primary btn-sm"
                                                     data-placement="top" data-toggle="tooltip"
