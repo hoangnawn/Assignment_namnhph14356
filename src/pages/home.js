@@ -3,6 +3,9 @@ import Header from "../components/header";
 import homeProduct from "../components/homeProduct";
 
 const HomePage = {
+    getTitle(){
+        return "Trang chủ";
+    },
     async render(){
         return /* html */ `
 
@@ -29,7 +32,7 @@ const HomePage = {
                         <p>Chúng tôi luôn cho ra những sản phẩm chất lượng tốt nhất</p>
                         </div>
                         <div class="col-md-4">
-                        <a href="#" class="filled-button">Liên hệ ngay</a>
+                        <a href="/#/contact" class="filled-button">Liên hệ ngay</a>
                         </div>
                     </div>
                     </div>

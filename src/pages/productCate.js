@@ -5,6 +5,9 @@ import Header from "../components/header";
 import { monney } from "../util/reRender";
 
 const ProductCate = {
+    getTitle(){
+        return "Sản phẩm";
+    },
     async render(id){
         console.log(id);
         const { data: cate } = await getAll();

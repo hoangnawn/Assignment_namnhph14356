@@ -5,6 +5,7 @@ import HeaderAdmin from "../../../components/admin/headerAdmin";
 import NavAdmin from "../../../components/admin/navAdmin";
 import $ from 'jquery';
 import validate from 'jquery-validation';
+import ProductAdmin from "./index";
 
 const AddProduct = {
     async render() {

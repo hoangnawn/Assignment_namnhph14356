@@ -1,11 +1,12 @@
-import { add, getAll, remove } from "../../../api/categori";
+import { getUser, remove } from "../../../api/user";
 import HeaderAdmin from "../../../components/admin/headerAdmin";
 import NavAdmin from "../../../components/admin/navAdmin";
 import { reLoad } from "../../../util/reRender";
 
-const Categori = {
+const UserAdmin = {
     async render(){
-        const { data } = await getAll();
+        const { data } = await getUser();
+        
         return /* html */ `
         ${HeaderAdmin.render()}
         ${NavAdmin.render()}
@@ -20,10 +21,10 @@ const Categori = {
                 <div class="row">
                     <div class="col-xl-12">
                         <div class="breadcrumb-holder">
-                            <h1 class="main-title float-left">Danh mục</h1>
+                            <h1 class="main-title float-left">Người dùng</h1>
                             <ol class="breadcrumb float-right">
                                 <li class="breadcrumb-item">Trang chủ</li>
-                                <li class="breadcrumb-item active">Danh mục</li>
+                                <li class="breadcrumb-item active">Người dùng</li>
                             </ol>
                             <div class="clearfix"></div>
                         </div>
@@ -37,40 +38,9 @@ const Categori = {
                         <div class="card mb-3">
 
                             <div class="card-header">
-                                <span class="pull-right"><button class=" btn-primary btn-sm" data-toggle="modal"
-                                        data-target="#modal_add_category"><i class="fa fa-plus"
-                                            aria-hidden="true"></i> Thêm danh mục</button></span>
-                                <div class="modal fade custom-modal" tabindex="-1" role="dialog" aria-hidden="true"
-                                    id="modal_add_category">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <form id="form-add">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title">Thêm danh mục</h5>
-                                                    <button type="button" class="close" data-dismiss="modal"><span
-                                                            aria-hidden="true">&times;</span><span
-                                                            class="sr-only">Đóng</span></button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <div class="row">
-                                                        <div class="col-lg-12">
-                                                            <div class="form-group">
-                                                                <label>Tên danh mục</label>
-                                                                <input class="form-control" id="name-cate" type="text">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="submit"
-                                                        class=" btn-primary">Thêm danh mục</button>
-                                                </div>
-                                            </form>
-
-                                        </div>
-                                    </div>
-                                </div>
-                                <h3><i class="fa fa-sitemap"></i> Danh mục</h3>
+                                
+                                
+                                <h3><i class="fa fa-sitemap"></i> Người dùng</h3>
                             </div>
                             <!-- end card-header -->
 
@@ -79,7 +49,9 @@ const Categori = {
                                     <thead>
                                         <tr>
                                             <th> Stt </th>
-                                            <th>Danh mục</th>
+                                            <th>Tên người dùng</th>
+                                            <th>Email</th>
+                                            <th>Vai trò</th>
 
                                             <th style="width:120px">Chức năng</th>
                                         </tr>
@@ -87,7 +59,7 @@ const Categori = {
                                     
                                     <tbody>
                                     
-                                        ${data.map((cate, index) => /* html */`
+                                        ${data.map((user, index) => /* html */`
                                             <tr>
 
                                                 <td>
@@ -97,16 +69,26 @@ const Categori = {
                                                 </td>
                                                 <td>
                                                     <strong>
-                                                        ${cate.names}
+                                                        ${user.username }
+                                                    </strong><br />
+                                                </td>
+                                                <td>
+                                                    <strong>
+                                                        ${user.email }
+                                                    </strong><br />
+                                                </td>
+                                                <td>
+                                                    <strong>
+                                                    ${user.role == 1? "Admin" : "Khách hàng"}
                                                     </strong><br />
                                                 </td>
 
                                                 <td>
-                                                    <a href="/admin/categori/${cate.id}/edit"
+                                                    <a href="/admin/user/${user.id}/edit"
                                                         class="btn-primary btn-sm"><i
                                                             class="fa fa-pencil" aria-hidden="true"></i></a>
                                                     
-                                                    <button data-id="${cate.id}" class="abc btn-danger btn-sm"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                                                    <button data-id="${user.id}" class="abc btn-danger btn-sm"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
                                                 </td>
                                         </tr>
                                         `).join("")}
@@ -131,16 +113,6 @@ const Categori = {
         `
     },
     afterRender(){
-        const formAdd = document.getElementById('form-add');
-
-        formAdd.addEventListener("submit",(e)=>{
-            add({
-                names: document.querySelector("#name-cate").value
-            })
-            reLoad(Categori, "#app");
-        });
-        
-
         const btn = document.querySelectorAll(".abc");
         btn.forEach((buttonElement)=>{
             const id = buttonElement.dataset.id;
@@ -149,11 +121,11 @@ const Categori = {
                 if(confirm){
                     remove(id)
                         .then(()=> alert("bạn đã xóa thành công"))
-                        .then(()=> reLoad(Categori, "#app"));
+                        .then(()=> reLoad(UserAdmin, "#app"));
                 }
             })
         });
     }
 
 };
-export default Categori;
+export default UserAdmin;

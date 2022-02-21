@@ -4,13 +4,16 @@ import Header from "../components/header"
 import { monney } from "../util/reRender";
 
 const NewDetail = {
+    getTitle(){
+        return "Bài viết";
+    },
     async render(id){
         const { data: pro } = await get(id);
 
         return /* html */ `
         ${Header.render()}
         
-        <div class="page-heading contact-heading header-text">
+        <div class="page-heading about-heading header-text">
         </div>
 
 

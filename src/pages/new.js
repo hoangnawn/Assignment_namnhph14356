@@ -2,15 +2,17 @@
 import { getAll } from "../api/new";
 import Footer from "../components/footer";
 import Header from "../components/header";
-import { monney } from "../util/reRender";
 
 const NewHome = {
+    getTitle(){
+        return "Tin tức";
+    },
     async render(){
         const { data: pro } = await getAll()
 
         return /* html */ `
         ${Header.render()}
-        <div class="page-heading products-heading header-text">
+        <div class="page-heading about-heading header-text">
             <div class="container">
                 <div class="row">
                 <div class="col-md-12">

@@ -2,15 +2,23 @@ import { get } from "../api/product";
 import Footer from "../components/footer";
 import Header from "../components/header"
 import { monney } from "../util/reRender";
+import { $ } from "../util/selector";
+import toastr from 'toastr';
+import "toastr/build/toastr.min.css";
+import { addToCart } from "../util/cart";
+
 
 const ProductDetail = {
+    getTitle(){
+        return "Chi tiết sản phẩm";
+    },
     async render(id){
         const { data: pro } = await get(id);
 
         return /* html */ `
         ${Header.render()}
         
-        <div class="page-heading contact-heading header-text">
+        <div class="page-heading products-heading header-text">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -44,20 +52,21 @@ const ProductDetail = {
                         <div class="w-100"></div>
                         <div class="input-group col-md-6 d-flex mb-3">
                             <span class="input-group-btn mr-2">
-                                <button type="button" class="fa fa-minus btn" data-type="minus" data-field="">
+                                <button onclick="var result = document.getElementById('quantity'); var qty = result.value; if( !isNaN(qty) &amp; qty > 1 ) result.value--;return false;" id="plus" type="button" class="fa fa-minus btn" data-type="minus" data-field="">
                                     <i class="ion-ios-remove"></i>
                                 </button>
                             </span>
                             <input type="text" style="margin-top:20px" id="quantity" name="quantity" class="form-control input-number" value="1"
                                 min="1" max="100">
                             <span class="input-group-btn ml-2">
-                                <button type="button" class="fa fa-plus btn" data-type="plus" data-field="">
+                                <button onclick="var result = document.getElementById('quantity'); var qty = result.value; if( !isNaN(qty)) result.value++;return false;" id="minus" type="button" class="fa fa-plus btn" data-type="plus" data-field="">
                                     <i class="ion-ios-add"></i>
                                 </button>
                             </span>
                         </div>
                     </div>
-                    <p><a href="cart.html" class="btn filled-button py-3 px-5">Add to Cart</a></p>
+                    <p><button class="btn filled-button py-3 px-5" id="addCart">Add to Cart</button></p>
+                    
                 </div>
             </div>
             <p class="desc">${pro.descs}</p>
@@ -68,8 +77,14 @@ const ProductDetail = {
         ${Footer.render()}
         `
     },
-    afterRender(){
+    afterRender(id){
         Header.afterRender();
+        $('#addCart').addEventListener('click', async function(){
+            const { data } = await get(id);
+            addToCart({...data, quantity: +$('#quantity').value}, () =>{
+                toastr.success("thêm thành công")
+            })
+        })
     }
 };
 export default ProductDetail;

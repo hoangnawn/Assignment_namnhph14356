@@ -20,7 +20,9 @@ const NavAdmin = {
 						<li class="submenu">
 							<a href="/#/admin/categori"><i class="fa fa-bookmark bigfonts"></i><span> Danh mục </span> </a>
 						</li>
-
+						<li class="submenu">
+							<a href="/#/admin/user"><i class="fa fa-user bigfonts"></i><span> Người dùng </span> </a>
+						</li>
 						<li class="submenu">
 							<a href="/#/admin/new"><i class="fa fa-newspaper-o bigfonts"></i><span> Tin tức </span> </a>
 						</li>
@@ -28,7 +30,7 @@ const NavAdmin = {
 							<a href="/#/admin/cart"><i class="fa fa-cart-arrow-down bigfonts"></i><span> Đơn hàng </span> </a>
 						</li>
 						<li class="submenu">
-							<a href="/#/"><i class="fa fa-cart-arrow-down bigfonts"></i><span> WEBSITE </span> </a>
+							<a href="/#/"><i class="fa fa-home bigfonts"></i><span> WEBSITE </span> </a>
 						</li>
 
 					</ul>
