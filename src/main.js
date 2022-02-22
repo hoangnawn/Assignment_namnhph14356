@@ -21,6 +21,7 @@ import UserAdmin from "./pages/admin/user/user";
 import EditUser from "./pages/admin/user/edituser";
 import CartAdmin from "./pages/admin/cart/cart";
 import EditCart from "./pages/admin/cart/editcart";
+import EditCate from "./pages/admin/categori/editcate";
 
 
 const router = new Navigo("/", { linksSelector: "a", hash: true });

@@ -6,6 +6,7 @@ import NavAdmin from "../../../components/admin/navAdmin";
 import $ from 'jquery';
 import validate from 'jquery-validation';
 import ProductAdmin from "./index";
+import { reLoad } from "../../../util/reRender";
 
 const AddProduct = {
     async render() {

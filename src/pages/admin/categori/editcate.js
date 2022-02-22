@@ -1,6 +1,8 @@
 import { get, update } from "../../../api/categori";
 import HeaderAdmin from "../../../components/admin/headerAdmin";
 import NavAdmin from "../../../components/admin/navAdmin";
+import { reLoad } from "../../../util/reRender";
+import Categori from "./categori";
 
 const EditCate = {
     async render(id){
@@ -87,6 +89,7 @@ const EditCate = {
                 id: id,
                 names: document.getElementById("names").value,
             });
+            reLoad(Categori, "#app");
         });
     }
 };

@@ -119,7 +119,7 @@ const CheckOut = {
         };
         Header.afterRender();
        const formOrder = document.querySelector("#formOrder");
-       formOrder.addEventListener('submit', async (e) =>{
+        formOrder.addEventListener('submit', async (e) =>{
            e.preventDefault();
            const orderData = {
             name: document.querySelector("#username").value,
@@ -128,6 +128,7 @@ const CheckOut = {
                creatdate: new Date().toISOString().slice(0,10),
                total: monney(getTotalPrice()),
                status: 0,
+               
             };
             const { data } = await add(orderData);
             const orderId = data.id;
@@ -140,11 +141,13 @@ const CheckOut = {
                     productPrice: cart.prices,
                     quantity: cart.quantity,
                 })
+                
             })
+            alert("Tạo đơn hàng thành công")
             localStorage.removeItem('cart');
-            toastr.success("Đã đặt hàng thành công");
             reLoad(CheckOut, "#app");
        })
+       
     }
 };
 export default CheckOut;

@@ -50,12 +50,12 @@ const EditUser = {
                                             <div class="form-group col-xl-9 col-md-8 col-sm-12">
                                                 <div class="form-group">
                                                     <label>Họ và tên</label>
-                                                    <input class="form-control" id="username" type="text" value="${data.username}">
+                                                    <input class="form-control" id="username" type="text" value="${data.username}" readonly>
 
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Email</label>
-                                                    <input class="form-control" id="email" type="text" value="${data.email}">
+                                                    <input class="form-control" id="email" type="text" value="${data.email}" readonly>
 
                                                 </div>
                                                 <div class="form-group">

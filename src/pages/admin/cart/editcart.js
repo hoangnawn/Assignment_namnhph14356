@@ -151,7 +151,7 @@ const EditCart= {
                 total: document.getElementById("total").value,
                 status: +document.getElementById("status").value,
             });
-            window.location.href=`#/admin/cart`
+            window.location.href=`/admin/cart`
         });
     }
 };

@@ -1,5 +1,7 @@
+import { add } from "../api/contact";
 import Footer from "../components/footer";
 import Header from "../components/header";
+import { reLoad } from "../util/reRender";
 
 const Contact = {
     getTitle(){
@@ -56,31 +58,31 @@ const Contact = {
                 </div>
                 <div class="col-md-8">
                     <div class="contact-form">
-                    <form id="contact" action="" method="post">
+                    <form id="contact">
                         <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12">
                             <fieldset>
-                            <input name="name" type="text" class="form-control" id="name" placeholder="Họ và tên" required="">
+                            <input  type="text" class="form-control" id="name" placeholder="Họ và tên" >
                             </fieldset>
                         </div>
                         <div class="col-lg-12 col-md-12 col-sm-12">
                             <fieldset>
-                            <input name="email" type="text" class="form-control" id="email" placeholder="E-Mail " required="">
+                            <input  type="text" class="form-control" id="email" placeholder="E-Mail " >
                             </fieldset>
                         </div>
                         <div class="col-lg-12 col-md-12 col-sm-12">
                             <fieldset>
-                            <input name="subject" type="number" class="form-control" id="phone" placeholder="Số điện thoại" required="">
+                            <input  type="number" class="form-control" id="phone" placeholder="Số điện thoại">
                             </fieldset>
                         </div>
                         <div class="col-lg-12">
                             <fieldset>
-                            <textarea name="message" rows="6" class="form-control" id="message" placeholder="Yêu cầu" required=""></textarea>
+                            <input type="text" class="form-control" id="message" placeholder="Yêu cầu"></textarea>
                             </fieldset>
                         </div>
                         <div class="col-lg-12">
                             <fieldset>
-                            <button type="submit" id="form-submit" class="filled-button">Send Message</button>
+                            <button type="submit" id="form-submit" class="filled-button">Gửi phản hồi</button>
                             </fieldset>
                         </div>
                         </div>
@@ -107,6 +109,15 @@ const Contact = {
     },
     afterRender(){
         Header.afterRender();
+        const formContact = document.querySelector("#contact")
+        formContact.addEventListener('submit', () =>{
+            add({
+                name: document.querySelector("#name").value,
+                email: document.querySelector("#email").value,
+                phone: document.querySelector("#phone").value,
+                message: document.querySelector("#message").value,
+            })
+        })
     }
 };
 export default Contact;
