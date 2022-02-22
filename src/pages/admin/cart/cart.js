@@ -33,7 +33,7 @@ const CartAdmin = {
                                     <h3><i class="fa fa-file-text-o"></i> Tất cả đơn hàng</h3>
                                 </div>
                                 <div>
-                                    <form action="index.php?act=dh-search" method="POST">
+                                    <form action="" method="POST">
                                         <div class="input-group rounded" id="input">
 
 

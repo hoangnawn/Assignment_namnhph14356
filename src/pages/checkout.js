@@ -2,6 +2,8 @@ import { add, addorder } from "../api/order";
 import Footer from "../components/footer";
 import Header from "../components/header";
 import { monney, reLoad } from "../util/reRender";
+import toastr from 'toastr';
+import "toastr/build/toastr.min.css";
 
 const CheckOut = {
     async render(){
@@ -140,6 +142,7 @@ const CheckOut = {
                 })
             })
             localStorage.removeItem('cart');
+            toastr.success("Đã đặt hàng thành công");
             reLoad(CheckOut, "#app");
        })
     }
