@@ -1,16 +1,16 @@
 import { getAll } from "../api/categori";
-import { getProduct } from "../api/product";
+import { getProduct, search } from "../api/product";
 import Footer from "../components/footer";
 import Header from "../components/header";
 import { monney } from "../util/reRender";
 
-const Product = {
+const Search = {
     getTitle(){
-        return "Sản phẩm";
+        return "Tìm kiếm sản phẩm";
     },
-    async render(){
+    async render(key){
         const { data: cate } = await getAll();
-        const { data: pro } = await getProduct();
+        const { data: pro } = await search(key);
 
         return /* html */ `
         ${Header.render()}
@@ -19,19 +19,21 @@ const Product = {
                 <div class="row">
                 <div class="col-md-12">
                     <div class="text-content">
-                    <h4>Tất cả sản phẩm</h4>
+                    <h4>Tìm kiếm sản phẩm</h4>
                     </div>
                 </div>
                 </div>
             </div>
         </div>
         <div class="row justify-center">
-            <form id="search-form" class="flex">
-                <input type="search" id="key" class="form-control relative flex-auto min-w-0 block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" placeholder="Search" aria-label="Search" aria-describedby="button-addon3">
-                <button type="submit" class=" inline-block px-6 py-2 border-2 border-blue-600 text-blue-600 font-medium text-xs leading-tight uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out" id="button-addon3">Search</button>
-            </form>
-        </div>
+        <form id="search-form" class="flex">
+        <input type="search" id="key" class="form-control relative flex-auto min-w-0 block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" placeholder="Search" aria-label="Search" aria-describedby="button-addon3">
+        <button type="submit" class=" inline-block px-6 py-2 border-2 border-blue-600 text-blue-600 font-medium text-xs leading-tight uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out" id="button-addon3">Search</button>
+        </form>
+      </div>
+        
         <div class="products">
+        
             <div class="container">
                 <div class="row">
                 <div class="col-md-12">
@@ -90,4 +92,4 @@ const Product = {
         })
     }
 };
-export default Product;
+export default Search;

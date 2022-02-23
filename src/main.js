@@ -23,6 +23,7 @@ import CartAdmin from "./pages/admin/cart/cart";
 import EditCart from "./pages/admin/cart/editcart";
 import EditCate from "./pages/admin/categori/editcate";
 import ContactAdmin from "./pages/admin/contact/contact";
+import Search from "./pages/search";
 
 
 const router = new Navigo("/", { linksSelector: "a", hash: true });
@@ -82,6 +83,9 @@ router.on({
     },
     "/contact": () =>{
         print(Contact)
+    },
+    "/search/:key": ({data}) =>{
+        print(Search, data.key)
     },
     "/admin": () =>{
         print(Dashbroad)

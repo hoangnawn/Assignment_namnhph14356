@@ -27,3 +27,7 @@ import instance from "./config";
         const url = `products/?categoriId=${id}&_expand=categori`;
         return instance.get(url);
     }
+    export const search = (key) =>{
+        const url = `products/?q=${key}`;
+        return instance.get(url)
+    }
