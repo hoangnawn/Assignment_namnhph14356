@@ -3,10 +3,6 @@ import instance from "./config";
         const url = `/orders`;
         return instance.get(url);
     }
-    export const getProductCate = () => {
-        const url = `/orders?_expand=categori`;
-        return instance.get(url);
-    }
     export const get = (id) => {
         const url = `/orders/${id}`;
         return instance.get(url);

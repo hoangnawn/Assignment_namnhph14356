@@ -158,22 +158,13 @@
       "status": 3
     },
     {
-      "id": 6,
+      "id": 7,
       "name": "Hoàng Nam",
-      "address": "Hai phong",
-      "email": "admin@admin.com",
-      "creatdate": "2022-02-22",
-      "total": "52.000.000 VND",
-      "status": 1
-    },
-    {
-      "name": "Hoàng Nam",
-      "email": "admin@admin.com",
       "address": "Hà Nội",
+      "email": "admin@admin.com",
       "creatdate": "2022-02-23",
       "total": "138.000.000 VND",
-      "status": 0,
-      "id": 7
+      "status": 1
     },
     {
       "name": "Hoàng Nam",
@@ -183,6 +174,15 @@
       "total": "30.000.000 VND",
       "status": 0,
       "id": 8
+    },
+    {
+      "name": "Hoàng Nam",
+      "email": "admin@admin.com",
+      "address": "FPT",
+      "creatdate": "2022-02-23",
+      "total": "264.000.000 VND",
+      "status": 0,
+      "id": 9
     }
   ],
   "orderDetails": [
@@ -215,20 +215,6 @@
       "id": 14
     },
     {
-      "orderId": 6,
-      "productId": 7,
-      "productPrice": 30000000,
-      "quantity": 1,
-      "id": 15
-    },
-    {
-      "orderId": 6,
-      "productId": 6,
-      "productPrice": 22000000,
-      "quantity": 1,
-      "id": 16
-    },
-    {
       "orderId": 7,
       "productId": 6,
       "productPrice": 22000000,
@@ -248,6 +234,20 @@
       "productPrice": 30000000,
       "quantity": 1,
       "id": 19
+    },
+    {
+      "orderId": 9,
+      "productId": 7,
+      "productPrice": 30000000,
+      "quantity": 4,
+      "id": 20
+    },
+    {
+      "orderId": 9,
+      "productId": 12,
+      "productPrice": 36000000,
+      "quantity": 4,
+      "id": 21
     }
   ],
   "contact": [

@@ -12,12 +12,12 @@ const Cart = {
         if (localStorage.getItem('cart')) {
             cart = JSON.parse(localStorage.getItem('cart'));
         }
+        console.log(cart.length);
         const getTotalPrice = () => {
             let totalPrice = 0;
 
             if (cart.length) {
                 totalPrice = cart.reduce((total, item) => {
-                    // eslint-disable-next-line no-param-reassign
                     total += (item.prices) * item.quantity;
                     return total;
                 }, 0);
