@@ -22,6 +22,7 @@ import EditUser from "./pages/admin/user/edituser";
 import CartAdmin from "./pages/admin/cart/cart";
 import EditCart from "./pages/admin/cart/editcart";
 import EditCate from "./pages/admin/categori/editcate";
+import ContactAdmin from "./pages/admin/contact/contact";
 
 
 const router = new Navigo("/", { linksSelector: "a", hash: true });
@@ -117,6 +118,9 @@ router.on({
     },
     "/admin/order/:id/edit": ({ data }) =>{
         print(EditCart, data.id)
+    },
+    "/admin/contact": () =>{
+        print(ContactAdmin)
     },
 });
 router.notFound(() => print("Not Found Page"));

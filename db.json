@@ -164,7 +164,7 @@
       "email": "admin@admin.com",
       "creatdate": "2022-02-22",
       "total": "52.000.000 VND",
-      "status": 0
+      "status": 1
     }
   ],
   "orderDetails": [
@@ -218,13 +218,6 @@
       "phone": "84387582379",
       "message": "Hay",
       "id": 1
-    },
-    {
-      "name": "Nguyen Hoang ",
-      "email": "admin@admin.com",
-      "phone": "84387582379",
-      "message": "Lừa đảo",
-      "id": 4
     }
   ]
 }

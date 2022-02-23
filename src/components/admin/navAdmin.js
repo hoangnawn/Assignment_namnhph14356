@@ -30,6 +30,9 @@ const NavAdmin = {
 							<a href="/#/admin/cart"><i class="fa fa-cart-arrow-down bigfonts"></i><span> Đơn hàng </span> </a>
 						</li>
 						<li class="submenu">
+							<a href="/#/admin/contact"><i class="fa fa-address-card bigfonts"></i><span> Liên hệ </span> </a>
+						</li>
+						<li class="submenu">
 							<a href="/#/"><i class="fa fa-home bigfonts"></i><span> WEBSITE </span> </a>
 						</li>
 
