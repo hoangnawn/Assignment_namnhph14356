@@ -1,5 +1,5 @@
 import { getAll } from "../api/categori";
-import { getProduct, search } from "../api/product";
+import { search } from "../api/product";
 import Footer from "../components/footer";
 import Header from "../components/header";
 import { monney } from "../util/reRender";

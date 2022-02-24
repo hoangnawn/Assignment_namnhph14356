@@ -111,8 +111,8 @@
       "id": 5,
       "username": "Anh Tran",
       "email": "vananh@123.com",
-      "role": 1,
-      "password": "$2a$10$pilJPVY07nTboxufPgwAROm2AVjEjgBsQXeTXQETlc8sSjyr3Sl/q"
+      "role": 2,
+      "password": "$2a$10$.C41bT7Lm/Xma4w3KOfJMu2e2MBRkG2DE3WU0q6PRqPNkrh4qZ.DW"
     }
   ],
   "news": [
@@ -183,6 +183,15 @@
       "total": "264.000.000 VND",
       "status": 0,
       "id": 9
+    },
+    {
+      "id": 10,
+      "name": "Hoàng Nam",
+      "address": "Ha Noi",
+      "email": "admin@admin.com",
+      "creatdate": "2022-02-24",
+      "total": "124.000.000 VND",
+      "status": 1
     }
   ],
   "orderDetails": [
@@ -248,6 +257,20 @@
       "productPrice": 36000000,
       "quantity": 4,
       "id": 21
+    },
+    {
+      "orderId": 10,
+      "productId": 6,
+      "productPrice": 22000000,
+      "quantity": 4,
+      "id": 22
+    },
+    {
+      "orderId": 10,
+      "productId": 12,
+      "productPrice": 36000000,
+      "quantity": 1,
+      "id": 23
     }
   ],
   "contact": [
@@ -257,6 +280,13 @@
       "phone": "84387582379",
       "message": "Hay",
       "id": 1
+    },
+    {
+      "name": "Nam",
+      "email": "admin@admin.com",
+      "phone": "84387582379",
+      "message": "Lừa đảo",
+      "id": 2
     }
   ]
 }
